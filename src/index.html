@@ -5,8 +5,17 @@
     <title>Vue FusionTime XT</title>
   </head>
   <body>
-    <div id="app">
-      <comp></comp>
+    <div id="web">
+      <fusiontime :width="800" :height="400" :data-source="fcDataSource"></fusiontime>
     </div>
+    <div id="stock">
+      <fusiontime :width="800" :height="400" :data-source="fcDataSource"></fusiontime>
+    </div>
+    <script src='lib/fusioncharts.js'></script>
+  	<script src='lib/fusioncharts.timeseries.js'></script>
+  	<script src='lib/data-aggregator-es5.js'></script>
+  	<script src='lib/growth-analyser-es5.js'></script>
+  	<script src='lib/date-range-chooser-es5.js'></script>
+  	<script src='lib/standard-period-selector-es5.js'></script>
   </body>
 </html>
