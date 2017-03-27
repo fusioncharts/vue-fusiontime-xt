@@ -1,0 +1,30 @@
+{
+  "name": "vue-fusiontime-xt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.html",
+  "scripts": {
+    "serve": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fusioncharts/vue-fusiontime-xt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fusioncharts/vue-fusiontime-xt/issues"
+  },
+  "homepage": "https://github.com/fusioncharts/vue-fusiontime-xt#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
+    "vue": "^2.2.6"
+  }
+}
