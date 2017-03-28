@@ -6860,8 +6860,8 @@ pre.code-tab {
   border: 1px solid lightgrey;
 }
 .list-group {
-	height: 924px;
-	overflow-y: scroll;
+	/*height: 924px;*/
+	overflow-y: auto;
   margin-bottom: 0;
 /*
 	border-top: 1px solid lightgrey;
