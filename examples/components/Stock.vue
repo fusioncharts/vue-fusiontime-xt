@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import VueFusionTime from '../lib/VueFusionTime.vue';
+  import VueFusionTime from '../../dist/VueFusionTime.vue';
 
   export default {
     data: function () {
