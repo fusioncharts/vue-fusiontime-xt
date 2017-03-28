@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Vue FusionTime</title>
+
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css" rel="stylesheet">
+		<link href="examples/main.css" rel="stylesheet" type="text/css">
+
+	</head>
+	<body>
+
+		<div class="row">
+			<div class="container">
+				<div class="masthead">
+					<ul class="nav nav-pills pull-right gh-pages-navbar-pills">
+						<li><a href="http://fusioncharts.github.io/react-fusioncharts-component/">Vue Fusiontime</a></li>
+					</ul>
+					<h3><a href="http://fusioncharts.com/"><img src="https://fusioncharts.github.io/react-fusioncharts-component/example/dist/images/210x38xlogo.png.pagespeed.ic.KZD9tJ7qIK.png" class="logo"></a></h3>
+				</div>
+			</div>
+		</div>
+
+		<div class="jumbotron">
+			<div class="container">
+				<div class="col-md-2">
+					<img src="http://fusioncharts.github.io/angular-fusioncharts/demos/images/ng-fc-logo.png">
+				</div>
+				<div class="col-md-10">
+					<h2 style="color: #fff">Vue FusionTime</h2>
+					<span style="color:#fff">Simple Vue Directive for FusionTime JavaScript Charting Library.</span>
+				</div>
+			</div>
+			<div class="container">
+				<ul class="nav nav-tabs gh-pages-nav-tabs" role="tablist">
+					<li id='home-navigate' role="presentation" class="navigation-tab active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+					<li id='getting-started-navigate' role="presentation" class="navigation-tab"><a href="#getting-started" aria-controls="getting-started" role="tab" data-toggle="tab">Getting Started</a></li>
+					<li id='dashboard-navigate' role="presentation" class="navigation-tab"><a href="#dashboard" aria-controls="dashboard" role="tab" data-toggle="tab">Dashboard</a></li>
+					<li id='examples-navigate' role="presentation" class="navigation-tab"><a href="#examples" aria-controls="examples" role="tab" data-toggle="tab">Demos</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="tab-content">
+
+			<div role="tabpanel" class="tab-pane active" id="home">
+				<div class="container">
+					<div class="row">
+						<div class="well well-info well-rounded clearfix">
+							<div class="col-md-6">
+								<div class="block block-features">
+									<h3>Features</h3>
+									<ul type="circle">
+										<li>Add a chart using just a single directive.</li>
+										<li>Auto-updates your chart object on modifying scope.</li>
+										<li>Vue-friendly events let you call controller functions directly from the chart.</li>
+										<li>Offers advanced control by giving you access to full FusionCharts object.</li>
+										<li>Add a chart via Scope Array Binding.</li>
+										<li>Plenty of examples and good documentation for VueJS charts.</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="block block-community">
+									<h3>Community</h3>
+									<ul type="circle">
+										<li><a href="/">Documentation</a></li>
+										<li><a href="https://github.com/fusioncharts/angular-fusiontime-xt/" target="_black">Github Repo</a></li>
+										<li><a href="https://github.com/fusioncharts/angular-fusiontime-xt/issues" target="_black">Issues</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="block block-support">
+									<h3>Support</h3>
+									<p>Simply open up <a href="https://github.com/fusioncharts/angular-fusiontime-xt/issues/new" target="_black">a github issue</a> with your question/bug report/suggestion.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="getting-started">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h2>QuickStart</h2>
+							<h3>Step 1: Include angular.fusiontime.js</h3>
+							<p>In your HTML, include <code class="language-javascript">vue-fusiontime.js</code> after all other scripts:</p>
+							<pre><code class="language-markup">&lt;script type="text/javascript" src="/path/to/vue-fusioncharts.js"&gt;&lt;/script&gt;</code></pre>
+							<h3>Step 2: Include <code class="language-javascript">ng-fusiontime</code> in your module</h3>
+							<p>In the app, include <code class="language-javascript">ng-fusiontime</code> as a dependency. If you looking for where to add the dependency, look for the call to <code class="language-javascript">angular.module</code> in your code.</p>
+							<pre><code class="language-javascript">angular.module("myApp", ["ng-fusiontime"])</code></pre>
+							<h3>Step 3: Add the <code class="language-javascript">fusiontime</code> directive</h3>
+							<p>In your HTML, find the section where you wish to add the chart and add a <code class="language-javascript">&lt;div&gt;</code> with the <code class="language-javascript">fusiontime</code> directive. We are assuming it's inside a controller called <code class="language-javascript">MyController</code> which would change based on your usage.</p>
+							<pre><code class="language-javascript">&lt;fusiontime width="800" height="400" dataSource="{{fcDataSource}}"&gt;&lt;/fusiontime&gt;</code></pre>
+							<p>Now this is bound to a datasource with the <code class="language-javascript">fcDataSource</code> scope object.</p>
+							<h3>Step 4: Populate required variables in controller</h3>
+							<p>In the previous code, we are binding to a scope variable <code class="language-javascript">fcDataSource</code>, but that hasn't been defined yet.</p>
+							<p>In your controller, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
+							<pre><code class="language-javascript">app.controller('MyController', function ($scope) {
+	    					$scope.fcDataSource = {
+	    					};
+							});</code></pre>
+							<p>And your chart should display when you load the page. </p>
+							<h3>Licensing</h3>
+							<p>Vue FusionTime is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>).</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="examples">
+				<div class="row">
+					<div role="tabpanel" class="container tab-pane">
+						<div class="row" id="vueApp">
+
+							<div class="col-md-3 tablist">
+								<div class="list-group" role="tablist">
+
+									<router-link to="web" class="list-group-item examples">
+										<h4>Web Visits and Downloads</h4>
+										<p>Simple Line Series</p>
+									</router-link>
+
+		            	<router-link to="stock" class="list-group-item examples">
+										<h4>Apple Stock</h4>
+										<p>Candle Stick Time Series chart</p>
+									</router-link>
+
+									<router-link to="mobile" class="list-group-item examples">
+										<h4>Different Mobile OS</h4>
+										<p>Manipulate Data</p>
+									</router-link>
+
+									<router-link to="slack" class="list-group-item examples">
+										<h4>Slack Conversations</h4>
+										<p>Fetch data from a JSON URL</p>
+									</router-link>
+
+									<router-link to="ebola" class="list-group-item examples">
+										<h4>Ebola Outbreak</h4>
+										<p>Fetch and compare three differnet examples</p>
+									</router-link>
+
+								</div>
+							</div>
+
+							<div class="col-md-9">
+								<router-view></router-view>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="dashboard">
+				<div class="container">
+					<div class="row">
+						<div class="well well-info well-rounded clearfix">
+							<h3>Dashboard</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"  type="text/javascript"></script>
+
+		<script src="examples/lib/fusioncharts.js"></script>
+		<script src="examples/lib/fusioncharts.timeseries.js"></script>
+		<script src="examples/lib/data-aggregator-es5.js"></script>
+		<script src="examples/lib/growth-analyser-es5.js"></script>
+		<script src="examples/lib/date-range-chooser-es5.js"></script>
+		<script src="examples/lib/standard-period-selector-es5.js"></script>
+
+		<script src="examples/build.js"></script>
+
+	</body>
+</html>
