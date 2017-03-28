@@ -12,7 +12,7 @@ import Slack from './components/Slack.vue';
 import Ebola from './components/Ebola.vue';
 
 const routes = [
-  { path: '/web',    component: Web },
+  { path: '/',       component: Web },
   { path: '/stock',  component: Stock },
   { path: '/mobile', component: Mobile },
   { path: '/slack',  component: Slack },
