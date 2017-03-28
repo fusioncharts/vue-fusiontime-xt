@@ -7123,3 +7123,8 @@ fusiontime {
   min-height: 450px;
   display: inline-block;
 }
+
+.fusiontime {
+  width: 850px;
+  height: 450px;
+}

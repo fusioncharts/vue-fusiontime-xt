@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="fusiontime"></div>
 </template>
 
 <script>
@@ -20,6 +20,7 @@
 				}
 			}
 		},
+
 		mounted: function () {
 			this.renderChart(this.dataSource);
 		},
@@ -28,6 +29,7 @@
         this.fc.dispose();
       }
 		},
+
 		watch: {
 			dataSource: function (val) {
 				this.renderChart(val);
