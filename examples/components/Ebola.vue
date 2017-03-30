@@ -9,7 +9,7 @@
 &lt;/template&gt;
 
 &lt;script&gt;
-  import VueFusionTime from '../../dist/VueFusionTime.vue';
+  import VueFusionTime from '../../dist/VueFusionTime';
 
   export default {
     data: function () {
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import VueFusionTime from '../../dist/VueFusionTime.vue';
+  import VueFusionTime from '../../dist/VueFusionTime';
 
   export default {
     data: function () {

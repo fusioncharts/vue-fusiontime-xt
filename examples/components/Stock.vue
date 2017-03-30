@@ -9,7 +9,7 @@
 &lt;/template&gt;
 
 &lt;script&gt;
-  import VueFusionTime from '../../dist/VueFusionTime.vue';
+  import VueFusionTime from '../../dist/VueFusionTime';
 
   export default {
     data: function () {
@@ -37,16 +37,11 @@
 </template>
 
 <script>
-  import VueFusionTime from '../../dist/VueFusionTime.vue';
-
   export default {
     data: function () {
       return {
         jsonData: {}
       }
-    },
-    components: {
-      'fusiontime': VueFusionTime
     },
     created: function () {
       this.$http.get('/examples/data/stock.json')
