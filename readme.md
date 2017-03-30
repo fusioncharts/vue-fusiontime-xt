@@ -4,20 +4,23 @@ Simple VueJS wrapper for using FusionTime XT
 
 ## QuickStart
 
-### Step 1: Include VueFusionTime.vue
-In your components directory, paste `VueFusionTime.vue` file from the `dist` directory in this repo.
+### Step 1: Install vue-fusiontime-xt npm package
+Execute the commands below in the terminal to install `vue-fusiontime-xt` node modules.
 
-### Step 2: Include `VueFusionTime` in your component object.
-In your app or component, import `VueFusionTime` as a dependency.
+```
+npm install vue-fusiontime-xt --save
+```
+
+### Step 2: Import the plugin in your main js file.
+```javascript
+import VueFusionTime from 'vue-fusiontime-xt';
+```
+
+### Step 3: Use the plugin by calling the `Vue.call()` global method.
+Right after the import statements you should write the following line.
 
 ```javascript
-import VueFusionTime from './components/VueFusionTime.vue';
-new Vue({
-	el: '#app',
-	component: {
-		'fusiontime': VueFusionTime
-	}
-});
+Vue.use(VueFusionTime);
 ```
 
 ### Step 3: Add the `fusiontime` component

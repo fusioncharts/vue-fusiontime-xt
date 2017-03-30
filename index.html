@@ -24,7 +24,7 @@
 		<div class="jumbotron">
 			<div class="container">
 				<div class="col-md-2">
-					<img src="http://fusioncharts.github.io/angular-fusioncharts/demos/images/ng-fc-logo.png">
+					<img src="http://fusioncharts.github.io/angular-fusioncharts/demos/images/ng-fc-logo.png" class="fc-bond-img">
 				</div>
 				<div class="col-md-10">
 					<h2 style="color: #fff">Vue FusionTime</h2>
@@ -85,28 +85,35 @@
 					<div class="row">
 						<div class="col-md-12">
 							<h2>QuickStart</h2>
-							<h3>Step 1: Include VueFusionTime.vue</h3>
-							<p>In your components directory, paste <code class="language-javascript">VueFusionTime.vue</code> file from the <code class="language-javascript">dist</code> directory in this repo.</p>
 
-							<h3>Step 2: Include <code class="language-javascript">VueFusionTime</code> in your component object.</h3>
-							<p>In your app or component, import <code class="language-javascript">VueFusionTime</code> as a dependency.</p>
-							<pre><code class="language-javascript">import VueFusionTime from './components/VueFusionTime.vue';
-new Vue({
-	el: '#app',
-	component: {
-		'fusiontime': VueFusionTime
-	}
-})						</code></pre>
+							<ul class="nav nav-tabs" id="enable_interactivity">
+								<li class="active"><a href="#npm_installation" data-toggle="tab">Install from npm</a></li>
+								<li><a href="#static_charts" data-toggle="tab">Non-Interactive Mode</a></li>
+							</ul>
 
-							<h3>Step 3: Add the <code class="language-javascript">fusiontime</code> component</h3>
-							<p>In your HTML or template, find the section where you wish to add the chart and add the <code class="language-javascript">&lt;fusiontime&gt;</code> component. We are assuming it's inside a vue instanse within a div with id <code class="language-javascript">#app</code> which would change based on your usage.</p>
-							<pre><code class="language-javascript">&lt;fusiontime width="800" height="400" :dataSource="fcDataSource"&gt;&lt;/fusiontime&gt;</code></pre>
-							<p>Now this is bound to a datasource named <code class="language-javascript">fcDataSource</code>.</p>
+							<div class="tab-content">
 
-							<h3>Step 4: Populate required variables in the vue instance</h3>
-							<p>In the previous code, we passed in a data variable <code class="language-javascript">fcDataSource</code>, but that hasn't been defined yet.</p>
-							<p>In your vue instance, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
-							<pre><code class="language-javascript">import VueFusionTime from './components/VueFusionTime.vue';
+								<div role="tabpanel" class="tab-pane fade in active" id="npm_installation">
+									<h3>Step 1: Install vue-fusiontime-xt npm package</h3>
+									<p>Execute the commands below in the terminal to install <code class="language-javascript">vue-fusiontime-xt</code> node modules.</p>
+									<pre><code class="language-javascript">npm install vue-fusiontime-xt --save</code></pre>
+
+									<h3>Step 2: Import the plugin in your main js file.</h3>
+									<pre><code class="language-javascript">import VueFusionTime from 'vue-fusiontime-xt';</code></pre>
+
+									<h3>Step 3: Use the plugin by calling the <code class="language-javascript">Vue.call()</code> global method.</h3>
+									<p>Right after the import statements you should write the following line.</p>
+									<pre><code class="language-javascript">Vue.use(VueFusionTime);</code></pre>
+
+									<h3>Step 4: Add the <code class="language-javascript">fusiontime</code> component</h3>
+									<p>In your HTML or template, find the section where you wish to add the chart and add the <code class="language-javascript">&lt;fusiontime&gt;</code> component. We are assuming it's inside a vue instanse within a div with id <code class="language-javascript">#app</code> which would change based on your usage.</p>
+									<pre><code class="language-javascript">&lt;fusiontime width="800" height="400" :dataSource="fcDataSource"&gt;&lt;/fusiontime&gt;</code></pre>
+									<p>Now this is bound to a datasource named <code class="language-javascript">fcDataSource</code>.</p>
+
+									<h3>Step 5: Populate required variables in the vue instance</h3>
+									<p>In the previous code, we passed in a data variable <code class="language-javascript">fcDataSource</code>, but that hasn't been defined yet.</p>
+									<p>In your vue instance, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
+									<pre><code class="language-javascript">import VueFusionTime from './components/VueFusionTime.vue';
 new Vue({
 	el: '#app',
 	data: {
@@ -115,8 +122,39 @@ new Vue({
 	component: {
 		'fusiontime': VueFusionTime
 	}
-})						</code></pre>
-							<p>And your chart should display when you load the page. </p>
+})
+									</code></pre>
+									<p>And your chart should display when you load the page. </p>
+								</div>
+
+								<div role="tabpanel" class="tab-pane fade in" id="static_charts">
+									<h3>Step 1: Include VueFusionTime.js</h3>
+									<p>In your components directory, paste <code class="language-javascript">VueFusionTime.js</code> file from the <code class="language-javascript">dist</code> directory in this repo. And include it your html file.</p>
+									<pre><code class="language-html">&lt;script src="path/to/VueFusionTime.js"&gt;&lt;/script&gt;</code></pre>
+
+									<h3>Step 3: Add the <code class="language-javascript">fusiontime</code> component</h3>
+									<p>In your HTML or template, find the section where you wish to add the chart and add the <code class="language-javascript">&lt;fusiontime&gt;</code> component. We are assuming it's inside a vue instanse within a div with id <code class="language-javascript">#app</code> which would change based on your usage.</p>
+									<pre><code class="language-javascript">&lt;fusiontime width="800" height="400" :dataSource="fcDataSource"&gt;&lt;/fusiontime&gt;</code></pre>
+									<p>Now this is bound to a datasource named <code class="language-javascript">fcDataSource</code>.</p>
+
+									<h3>Step 4: Populate required variables in the vue instance</h3>
+									<p>In the previous code, we passed in a data variable <code class="language-javascript">fcDataSource</code>, but that hasn't been defined yet.</p>
+									<p>In your vue instance, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
+									<pre><code class="language-javascript">import VueFusionTime from './components/VueFusionTime.vue';
+new Vue({
+	el: '#app',
+	data: {
+		fcDataSource: jsonData
+	}
+	component: {
+		'fusiontime': VueFusionTime
+	}
+})
+									</code></pre>
+									<p>And your chart should display when you load the page. </p>
+								</div>
+
+							</div>
 
 							<h2>Licensing</h2>
 							<p>Vue FusionTime is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>).</p>

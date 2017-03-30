@@ -7128,3 +7128,8 @@ fusiontime {
   width: 850px;
   height: 450px;
 }
+
+.fc-bond-img {
+  margin-top: 17px;
+  max-width: 100%;
+}
