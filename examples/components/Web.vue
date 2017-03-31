@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import VueFusionTime from '../../dist';
+  import VueFusionTime from '../../src';
 
   export default {
     data: function () {

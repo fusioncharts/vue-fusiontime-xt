@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const moduleConfig = {
   rules: [{
@@ -8,9 +7,6 @@ const moduleConfig = {
     loader: 'vue-loader',
     options: {
       loaders: {
-        // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-        // the "scss" and "sass" values for the lang attribute to the right configs here.
-        // other preprocessors should work out of the box, no loader config like this necessary.
         'scss': 'vue-style-loader!css-loader!sass-loader',
         'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
       }
@@ -19,12 +15,6 @@ const moduleConfig = {
     test: /\.js$/,
     loader: 'babel-loader',
     exclude: /node_modules/
-  }, {
-    test: /\.(png|jpg|gif|svg)$/,
-    loader: 'file-loader',
-    options: {
-      name: '[name].[ext]?[hash]'
-    }
   }]
 };
 
@@ -32,16 +22,6 @@ const resolveConfig = {
   alias: {
     'vue$': 'vue/dist/vue.esm.js'
   }
-};
-
-const devServerConfig = {
-  contentBase: path.join(__dirname, './'),
-  historyApiFallback: true,
-  noInfo: true
-};
-
-const performanceConfig = {
-  hints: false
 };
 
 module.exports = {
@@ -53,14 +33,7 @@ module.exports = {
   },
   module: moduleConfig,
   resolve: resolveConfig,
-  devServer: devServerConfig,
-  performance: performanceConfig,
   devtool: '#eval-source-map'
-  // plugins: [
-  //   new CopyWebpackPlugin([
-  //     { from: './src/VueFusionTime.vue', to: './../dist/VueFusionTime.vue' }
-  //   ])
-  // ]
 };
 
 if (process.env.NODE_ENV === 'production') {

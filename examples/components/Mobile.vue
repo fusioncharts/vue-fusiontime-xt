@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import VueFusionTime from '../../dist/VueFusionTime';
+  import VueFusionTime from '../../src';
 
   export default {
     data: function () {
@@ -46,7 +46,7 @@
       }
     },
     components: {
-      'fusiontime': VueFusionTime
+      'fusiontime': VueFusionTime.component
     },
     created: function () {
       this.$http.get('/examples/data/mobile.json')
