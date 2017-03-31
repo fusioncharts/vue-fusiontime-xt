@@ -1,0 +1,3 @@
+[submodule "examples/datarepo"]
+	path = examples/datarepo
+	url = https://github.com/fusioncharts/fusiontime-xt-demos.git
