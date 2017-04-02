@@ -16,7 +16,7 @@ const resolveConfig = {
 };
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/tag.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

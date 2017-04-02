@@ -166,44 +166,31 @@ new Vue({
 			<div role="tabpanel" class="tab-pane" id="examples">
 				<div class="row">
 					<div role="tabpanel" class="container tab-pane">
-						<div class="row" id="vueApp">
+
+						<div class="row" id="app">
 
 							<div class="col-md-3 tablist">
 								<div class="list-group" role="tablist">
 
-									<router-link to="/" class="list-group-item examples">
-										<h4>Web Visits and Downloads</h4>
-										<p>Simple Line Series</p>
-									</router-link>
-
-		            	<router-link to="stock" class="list-group-item examples">
-										<h4>Apple Stock</h4>
-										<p>Candle Stick Time Series chart</p>
-									</router-link>
-
-									<router-link to="mobile" class="list-group-item examples">
-										<h4>Different Mobile OS</h4>
-										<p>Manipulate Data</p>
-									</router-link>
-
-									<router-link to="slack" class="list-group-item examples">
-										<h4>Slack Conversations</h4>
-										<p>Fetch data from a JSON URL</p>
-									</router-link>
-
-									<router-link to="ebola" class="list-group-item examples">
-										<h4>Ebola Outbreak</h4>
-										<p>Fetch and compare three differnet examples</p>
-									</router-link>
+									<a class="list-group-item examples" v-for="chart in charts" v-on:click="demoClickHandler(chart)">
+										<h4>{{ chart.metadata.name }}</h4>
+										<p>{{ chart.metadata.desc }}</p>
+									</a>
 
 								</div>
 							</div>
 
 							<div class="col-md-9">
-								<router-view></router-view>
+
+								<fusiontime width="850" height="450" :data-source="selectedDataSource"></fusiontime>
+								<hr>
+						    <h3>JavaScript Code</h3>
+						    <pre id="selectedSnippet"><code class="language-markup"></code></pre>
+
 							</div>
 
 						</div>
+
 					</div>
 				</div>
 			</div>
