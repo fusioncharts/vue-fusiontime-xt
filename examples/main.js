@@ -1,30 +1,38 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import VueResource from 'vue-resource';
 import VueFusionTime from '../src';
+import Snippets from './snippets';
 
-Vue.use(VueRouter);
-Vue.use(VueResource);
 Vue.use(VueFusionTime);
 
-import Web from './components/Web.vue';
-import Stock from './components/Stock.vue';
-import Mobile from './components/Mobile.vue';
-import Slack from './components/Slack.vue';
-import Ebola from './components/Ebola.vue';
-
-const routes = [
-  { path: '/',       component: Web },
-  { path: '/stock',  component: Stock },
-  { path: '/mobile', component: Mobile },
-  { path: '/slack',  component: Slack },
-  { path: '/ebola',  component: Ebola },
-];
-
-const router = new VueRouter({
-	routes: routes
+window.app = new Vue({
+  el: '#app',
+  data: {
+    charts: tsData,
+    snippets: Snippets,
+    selectedDataSource: null
+  },
+  methods: {
+    demoClickHandler: function (chart) {
+      this.selectedDataSource = chart.data;
+      document.querySelector('#selectedSnippet > code').textContent = chart.snippet;
+      Prism.highlightAll();
+    },
+    _attachSnippets: function () {
+      for (let key in this.charts) {
+        if (this.charts.hasOwnProperty(key) && this.snippets.hasOwnProperty(key)) {
+          this.charts[key].snippet = this.snippets[key].trim();
+        }
+      }
+    },
+    _initDefaults: function () {
+      let firstKey = Object.keys(this.charts)[0];
+      this.selectedDataSource = this.charts[firstKey].data;
+      document.querySelector('#selectedSnippet > code').textContent = this.charts[firstKey].snippet;
+      Prism.highlightAll();
+    }
+  },
+  created: function () {
+    this._attachSnippets();
+    this._initDefaults();
+  }
 });
-
-const app = new Vue({
-	router: router
-}).$mount('#vueApp');

@@ -16,11 +16,11 @@ const resolveConfig = {
 };
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/tag.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'index.js'
+    filename: 'vue-fusiontime-xt.js'
   },
   module: moduleConfig,
   resolve: resolveConfig,

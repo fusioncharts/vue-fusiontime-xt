@@ -61,8 +61,8 @@ gulp.task('serve', ['script:component', 'script:examples', 'style'], _ => {
 
   gulp.watch('./index.html', ['watch:html']);
   gulp.watch('./examples/main.scss', ['watch:style']);
-  gulp.watch('./src/*/**.js', ['watch:script:component']);
-  gulp.watch(['./examples/main.js', './examples/*/**.vue'], ['watch:script:examples']);
+  gulp.watch('./src/*.js', ['watch:script:component']);
+  gulp.watch(['./examples/main.js', './examples/snippets/*.js', './src/*.js', '!./src/tag.js'], ['watch:script:examples']);
 });
 
 gulp.task('default', ['clean'], cb =>
