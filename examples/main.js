@@ -14,25 +14,21 @@ window.app = new Vue({
   methods: {
     demoClickHandler: function (chart) {
       this.selectedDataSource = chart.data;
-      document.querySelector('#selectedSnippet > code').innerText = chart.snippet;
+      document.querySelector('#selectedSnippet > code').textContent = chart.snippet;
       Prism.highlightAll();
     },
     _attachSnippets: function () {
-      let snippetsKeys = Object.keys(this.snippets);
       for (let key in this.charts) {
-        if (this.charts.hasOwnProperty(key)) {
-          if (snippetsKeys.includes(key)) {
-            this.charts[key].snippet = this.snippets[key];
-          }
+        if (this.charts.hasOwnProperty(key) && this.snippets.hasOwnProperty(key)) {
+          this.charts[key].snippet = this.snippets[key].trim();
         }
       }
     },
     _initDefaults: function () {
       let firstKey = Object.keys(this.charts)[0];
       this.selectedDataSource = this.charts[firstKey].data;
-      document.querySelector('#selectedSnippet > code').innerText = this.charts[firstKey].snippet;
-      console.log('_initDefaults');
-      // Prism.highlightAll();
+      document.querySelector('#selectedSnippet > code').textContent = this.charts[firstKey].snippet;
+      Prism.highlightAll();
     }
   },
   created: function () {
