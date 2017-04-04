@@ -1,3 +1,5 @@
-import VueFusionTime from './VueFusionTime';
+import VueFusionTime from './index.js';
 
-Vue.component(VueFusionTime.name, VueFusionTime);
+if ((typeof window !== 'undefined') && window.Vue) {
+  Vue.use(VueFusionTime);
+}

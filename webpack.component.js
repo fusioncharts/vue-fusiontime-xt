@@ -20,7 +20,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'index.js'
+    filename: 'vue-fusiontime-xt.js'
   },
   module: moduleConfig,
   resolve: resolveConfig,
