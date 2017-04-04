@@ -4,7 +4,7 @@ let snippet = `
 </template>
 
 <script>
-  import VueFusionTime from '../../dist/VueFusionTime';
+  import VueFusionTime from 'vue-fusiontime-xt';
 
   export default {
     data: function () {
@@ -16,13 +16,13 @@ let snippet = `
       'fusiontime': VueFusionTime
     },
     created: function () {
-      this.$http.get('/examples/data/stock.json')
+      this.$http.get('/path/to/stock.json')
         .then(response => response.json())
         .then(json => {
           this.jsonData = json;
         })
         .catch(err => {
-          console.err(err);
+          console.error(err);
         });
     }
   }

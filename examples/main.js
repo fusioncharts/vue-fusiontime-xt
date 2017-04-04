@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueFusionTime from '../src';
-import Data from './datarepo';
 import Snippets from './snippets';
 
 Vue.use(VueFusionTime);
@@ -8,7 +7,7 @@ Vue.use(VueFusionTime);
 window.app = new Vue({
   el: '#app',
   data: {
-    charts: Data,
+    charts: tsData,
     snippets: Snippets,
     selectedDataSource: null
   },
@@ -32,7 +31,8 @@ window.app = new Vue({
       let firstKey = Object.keys(this.charts)[0];
       this.selectedDataSource = this.charts[firstKey].data;
       document.querySelector('#selectedSnippet > code').innerText = this.charts[firstKey].snippet;
-      Prism.highlightAll();
+      console.log('_initDefaults');
+      // Prism.highlightAll();
     }
   },
   created: function () {

@@ -16,13 +16,13 @@ let snippet = `
       'fusiontime': VueFusionTime
     },
     created: function () {
-      this.$http.get('/examples/data/ebola.json')
+      this.$http.get('/path/to/ebola.json')
         .then(response => response.json())
         .then(json => {
           this.jsonData = json;
         })
         .catch(err => {
-          console.err(err);
+          console.error(err);
         });
     }
   }
