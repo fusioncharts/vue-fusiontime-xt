@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueFusionTime from '../src';
+import tsData from './datarepo';
 import Snippets from './snippets';
 
 Vue.use(VueFusionTime);
