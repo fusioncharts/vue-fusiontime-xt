@@ -14,10 +14,7 @@ const moduleConfig = {
   }, {
     test: /\.js$/,
     loader: 'babel-loader',
-    exclude: /node_modules/,
-    options: {
-      compact: false
-    }
+    exclude: /node_modules/
   }]
 };
 
