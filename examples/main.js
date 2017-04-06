@@ -20,8 +20,11 @@ window.app = new Vue({
     },
     _attachSnippets: function () {
       for (let key in this.charts) {
-        if (this.charts.hasOwnProperty(key) && this.snippets.hasOwnProperty(key)) {
-          this.charts[key].snippet = this.snippets[key].trim();
+        if (this.charts.hasOwnProperty(key)) {
+          if (this.snippets.hasOwnProperty(key))
+            this.charts[key].snippet = this.snippets[key].trim();
+          else
+            this.charts[key].snippet = this.snippets.default.trim();
         }
       }
     },
