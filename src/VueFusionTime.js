@@ -8,7 +8,23 @@ export default {
 		});
 	},
 
-	props: ['width', 'height', 'dataSource'],
+	props: {
+		width: {
+			type: Number,
+			default: 850,
+			required: true
+		},
+		height: {
+			type: Number,
+			default: 450,
+			required: true
+		},
+		dataSource: {
+			type: Object,
+			default: null,
+			required: true
+		}
+	},
 	methods: {
 		renderChart: function (data) {
       if (Object.keys(data).length > 0) {

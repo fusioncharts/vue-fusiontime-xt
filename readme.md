@@ -16,14 +16,20 @@ npm install vue-fusiontime-xt --save
 import VueFusionTime from 'vue-fusiontime-xt';
 ```
 
-### Step 3: Use the plugin by calling the `Vue.call()` global method.
-Right after the import statements you should write the following line.
+### Step 3: Use the plugin by calling the `Vue.use()` global method.
+Right after the import statements you should call the Vue.use() method. This will register the component globally.
 
 ```javascript
 Vue.use(VueFusionTime);
 ```
 
-### Step 3: Add the `fusiontime` component
+Or, you can register the component locally by using Vue.component() method.
+
+```
+Vue.component(VueFusionTime.name, VueFusionTime);
+```
+
+### Step 4: Add the `fusiontime` component
 In your HTML or template, find the section where you wish to add the chart and add the `<fusiontime>` component. We are assuming it's inside a vue instanse within a div with id `#app` which would change based on your usage.
 
 ```html
@@ -32,7 +38,7 @@ In your HTML or template, find the section where you wish to add the chart and a
 
 Now this is bound to a datasource named `fcDataSource`.
 
-### Step 4: Populate required variables in the vue instance
+### Step 5: Populate required variables in the vue instance
 In the previous code, we passed in a data variable `fcDataSource`, but that hasn't been defined yet.
 
 In your vue instance, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see [this tutorial](http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html) for a general introduction to this format).
