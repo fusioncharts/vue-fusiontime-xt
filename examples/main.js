@@ -10,33 +10,32 @@ window.app = new Vue({
   data: {
     charts: tsData,
     snippets: Snippets,
-    selectedDataSource: null
+    selectedDataSource: {},
   },
   methods: {
-    demoClickHandler: function (chart) {
+    demoClickHandler(chart) {
       this.selectedDataSource = chart.data;
       document.querySelector('#selectedSnippet > code').textContent = chart.snippet;
       Prism.highlightAll();
     },
-    _attachSnippets: function () {
-      for (let key in this.charts) {
-        if (this.charts.hasOwnProperty(key)) {
-          if (this.snippets.hasOwnProperty(key))
-            this.charts[key].snippet = this.snippets[key].trim();
-          else
-            this.charts[key].snippet = this.snippets.default.trim();
+    _attachSnippets() {
+      Object.keys(this.charts).forEach(key => {
+        if (this.snippets[key] !== undefined) {
+          this.charts[key].snippet = this.snippets[key].trim();
+        } else {
+          this.charts[key].snippet = this.snippets.default.trim();
         }
-      }
+      });
     },
-    _initDefaults: function () {
-      let firstKey = Object.keys(this.charts)[0];
+    _initDefaults() {
+      const firstKey = Object.keys(this.charts)[0];
       this.selectedDataSource = this.charts[firstKey].data;
       document.querySelector('#selectedSnippet > code').textContent = this.charts[firstKey].snippet;
       Prism.highlightAll();
-    }
+    },
   },
-  created: function () {
+  created() {
     this._attachSnippets();
     this._initDefaults();
-  }
+  },
 });

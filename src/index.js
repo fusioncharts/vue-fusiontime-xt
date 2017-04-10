@@ -2,7 +2,7 @@ import VueFusionTime from './VueFusionTime';
 
 export default {
   component: VueFusionTime,
-  install: function (Vue) {
+  install(Vue) {
     Vue.component(VueFusionTime.name, VueFusionTime);
-  }
+  },
 };
