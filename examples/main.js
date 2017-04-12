@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Prism from 'prismjs';
 import VueFusionTime from '../src';
 import tsData from './datarepo';
 import Snippets from './snippets';
@@ -19,7 +20,7 @@ window.app = new Vue({
       Prism.highlightAll();
     },
     _attachSnippets() {
-      Object.keys(this.charts).forEach(key => {
+      Object.keys(this.charts).forEach((key) => {
         if (this.snippets[key] !== undefined) {
           this.charts[key].snippet = this.snippets[key].trim();
         } else {

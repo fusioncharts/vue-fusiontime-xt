@@ -6,42 +6,45 @@ import webpackStream from 'webpack-stream';
 import browserSyncBuilder from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 
-const $           = gulpLoadPlugins();
+const $ = gulpLoadPlugins();
 const browserSync = browserSyncBuilder.create();
-const reload      = browserSync.reload;
+const reload = browserSync.reload;
 
-gulp.task('script:examples', _ =>
+const configExamples = require('./webpack.config.examples.js');
+const configComponent = require('./webpack.config.component.js');
+
+gulp.task('script:examples', () => (
   gulp.src([
-    './examples/main.js'
+    './examples/main.js',
   ])
-  .pipe(webpackStream(require('./webpack.examples.js'), webpack))
+  .pipe(webpackStream(configExamples, webpack))
   .pipe(gulp.dest('./examples'))
-);
+));
 
-gulp.task('script:component', _ =>
+gulp.task('script:component', () => (
   gulp.src([
-    './src/index.js'
+    './src/index.js',
   ])
-  .pipe(webpackStream(require('./webpack.component.js'), webpack))
+  .pipe(webpackStream(configComponent, webpack))
   .pipe(gulp.dest('./dist'))
-);
+));
 
-gulp.task('style', _ =>
+gulp.task('style', () => (
   gulp.src([
-    './examples/main.scss'
+    './examples/main.scss',
   ])
   .pipe($.sass().on('error', $.sass.logError))
   .pipe($.autoprefixer())
   .pipe(gulp.dest('./examples'))
-);
+));
 
-gulp.task('clean', _ =>
+gulp.task('clean', () => (
   del(['dist/*', '!dist/.git'], {
-    dot: true
+    dot: true,
   })
-);
+));
 
-const r = d => {
+const r = (d) => {
   reload();
   d();
 };
@@ -54,22 +57,22 @@ gulp.task('watch:script:component', ['script:component'], r);
 
 gulp.task('watch:script:examples', ['script:examples'], r);
 
-gulp.task('serve', ['script:component', 'script:examples', 'style'], _ => {
+gulp.task('serve', ['script:component', 'script:examples', 'style'], () => {
   browserSync.init({
-    server: './'
+    server: './',
   });
 
   gulp.watch('./index.html', ['watch:html']);
   gulp.watch('./examples/main.scss', ['watch:style']);
   gulp.watch('./src/*.js', ['watch:script:component']);
-  gulp.watch(['./examples/main.js', './examples/snippets/*.js', './src/*.js', '!./src/tag.js'], ['watch:script:examples']);
+  gulp.watch(['./examples/main.js', './examples/snippets/*.js', './src/*.js'], ['watch:script:examples']);
 });
 
-gulp.task('default', ['clean'], cb =>
+gulp.task('default', ['clean'], cb => (
   runSequence(
     'style',
     'script:component',
     'script:examples',
-    cb
+    cb // eslint-disable-line comma-dangle
   )
-);
+));

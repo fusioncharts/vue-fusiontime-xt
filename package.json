@@ -2,9 +2,9 @@
   "name": "vue-fusiontime-xt",
   "version": "0.0.1",
   "description": "VueJS Wrapper for FusionTime XT",
-  "main": "src/index.js",
+  "main": "src/vue-fusiontime-xt.js",
   "scripts": {
-    "dev": "gulp serve",
+    "dev": "cross-env NODE_ENV=development gulp serve",
     "build": "cross-env NODE_ENV=production gulp"
   },
   "repository": {
@@ -30,10 +30,7 @@
     "eslint-plugin-import": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-if": "^2.0.2",
     "gulp-load-plugins": "^1.2.4",
-    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "node-sass": "^4.5.1",
@@ -42,10 +39,11 @@
     "vue-loader": "^11.3.3",
     "vue-style-loader": "^2.0.5",
     "vue-template-compiler": "^2.2.6",
-    "webpack": "^2.3.2",
+    "webpack": "^2.3.3",
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "prismjs": "^1.6.0",
     "vue": "^2.2.6"
   }
 }

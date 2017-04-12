@@ -5,20 +5,15 @@
   ],
   "env": {
     "browser": true,
-    "amd": true
+    "amd": true,
+    "commonjs": true
   },
   "rules": {
-    "no-param-reassign": 0,
-    "global-require": 0,
-    "arrow-parens": 0,
-    "no-underscore-dangle": 0,
-    "no-console": ["warn", {
-      "allow": ["warn", "error"]
+    "no-underscore-dangle": ["error", {
+      "allowAfterThis": true
     }]
   },
   "globals": {
-    "FusionCharts": true,
-    "Prism": true,
-    "Vue": true
+    "FusionCharts": true
   }
 }

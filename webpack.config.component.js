@@ -5,26 +5,31 @@ const moduleConfig = {
   rules: [{
     test: /\.js$/,
     loader: 'babel-loader',
-    exclude: /node_modules/
-  }]
+    exclude: /node_modules/,
+  }],
 };
 
 const resolveConfig = {
   alias: {
-    'vue$': 'vue/dist/vue.esm.js'
-  }
+    vue$: 'vue/dist/vue.esm.js',
+  },
 };
 
 module.exports = {
-  entry: './src/tag.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-fusiontime-xt.js'
+    filename: 'vue-fusiontime-xt.js',
+    library: 'vue-fusiontime-xt',
+    libraryTarget: 'umd',
+  },
+  externals: {
+    vue: 'vue',
   },
   module: moduleConfig,
   resolve: resolveConfig,
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
 };
 
 if (process.env.NODE_ENV === 'production') {
@@ -32,17 +37,17 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
-      }
+        NODE_ENV: 'production',
+      },
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
+      minimize: true,
+    }),
   ]);
 }
