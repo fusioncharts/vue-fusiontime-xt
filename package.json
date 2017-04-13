@@ -5,7 +5,9 @@
   "main": "src/vue-fusiontime-xt.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp serve",
-    "build": "cross-env NODE_ENV=production gulp"
+    "build:example": "cross-env NODE_ENV=production gulp build:example",
+    "build:source": "cross-env NODE_ENV=production gulp build:source",
+    "build": "npm run build:source && npm run build:example"
   },
   "repository": {
     "type": "git",
