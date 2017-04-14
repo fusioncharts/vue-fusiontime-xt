@@ -4,36 +4,69 @@ Simple VueJS wrapper for using FusionTime XT
 
 ## QuickStart
 
-### Step 1: Install vue-fusiontime-xt npm package
+### Step 1: Include vue-fusiontime-xt in your project
+
+#### Option A: Using script tag
+This is the most easiest option just include the necessary js files and you are good to go. Skip over to *Step 4* after this.
+```html
+<script src="path/to/vue.js"></script>
+<script src="path/to/vue-fusiontime-xt.js"></script>
+```
+
+#### Option B: Using npm package
+If you want more control on your components or want to use module bundlers, code splitting and others choose this option.
+
 Execute the commands below in the terminal to install `vue-fusiontime-xt` node modules.
 
 ```
 npm install vue-fusiontime-xt --save
 ```
 
-### Step 2: Import the plugin in your main js file.
+### Step 2: Use the plugin in your main js file.
+
+#### Option A: Using CommonJS
 ```javascript
-import VueFusionTime from 'vue-fusiontime-xt';
+var FusiontimeXt = require('vue-fusiontime-xt').default;
+
+// Code of Step 3 here
 ```
 
-### Step 3: Use the plugin by calling the `Vue.use()` global method.
+#### Option B: Using CommonJS ES6 style
+```javascript
+import FusiontimeXt from 'vue-fusiontime-xt';
+
+// Code of Step 3 here
+```
+
+#### Option C: Using AMD
+```javascript
+define(['vue', 'vue-fusiontime-xt'], function (Vue, FusiontimeXt) {
+	FusiontimeXt = FusiontimeXt.default;
+
+	// Code of Step 3 here
+});
+```
+
+### Step 3: Use the plugin.
+
+#### Option A: By calling the `Vue.use()` global method
 Right after the import statements you should call the Vue.use() method. This will register the component globally.
 
 ```javascript
-Vue.use(VueFusionTime);
+Vue.use(FusiontimeXt);
 ```
 
-Or, you can register the component locally by using Vue.component() method.
+#### Option B: By registering the component locally by using `Vue.component()` method.
 
-```
-Vue.component(VueFusionTime.name, VueFusionTime);
+```javascript
+Vue.component(FusiontimeXt.name, FusiontimeXt);
 ```
 
 ### Step 4: Add the `fusiontime` component
 In your HTML or template, find the section where you wish to add the chart and add the `<fusiontime>` component. We are assuming it's inside a vue instanse within a div with id `#app` which would change based on your usage.
 
 ```html
-<fusiontime width="800" height="400" :dataSource="fcDataSource"></fusiontime>
+<fusiontime :width="800" :height="400" :dataSource="fcDataSource"></fusiontime>
 ```
 
 Now this is bound to a datasource named `fcDataSource`.
@@ -49,9 +82,6 @@ new Vue({
 	el: '#app',
 	data: {
 		fcDataSource: jsonData
-	}
-	component: {
-		'fusiontime': VueFusionTime
 	}
 });
 ```
