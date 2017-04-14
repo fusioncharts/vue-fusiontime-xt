@@ -21,11 +21,8 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'vue-fusiontime-xt.js',
-    library: 'vue-fusiontime-xt',
+    library: 'FusiontimeXt',
     libraryTarget: 'umd',
-  },
-  externals: {
-    vue: 'vue',
   },
   module: moduleConfig,
   resolve: resolveConfig,

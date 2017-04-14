@@ -2,12 +2,12 @@
   "name": "vue-fusiontime-xt",
   "version": "0.0.1",
   "description": "VueJS Wrapper for FusionTime XT",
-  "main": "src/vue-fusiontime-xt.js",
+  "main": "dist/vue-fusiontime-xt.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp serve",
-    "build:example": "cross-env NODE_ENV=production gulp build:example",
+    "build:examples": "cross-env NODE_ENV=production gulp build:examples",
     "build:source": "cross-env NODE_ENV=production gulp build:source",
-    "build": "npm run build:source && npm run build:example"
+    "build": "npm run build:source && npm run build:examples"
   },
   "repository": {
     "type": "git",

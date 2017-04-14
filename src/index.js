@@ -1,15 +1,14 @@
-import Vue from 'vue';
-import component from './VueFusionTime';
+import component from './vue-fusiontime-xt';
 
-const VueFusionTime = {
+const VueFusiontimeXt = {
   component,
   install(VueInstance) {
     VueInstance.component(component.name, component);
   },
 };
 
-export default VueFusionTime;
+export default VueFusiontimeXt;
 
-if ((typeof window !== 'undefined') && window.Vue) {
-  Vue.use(VueFusionTime);
+if ((typeof window === 'object') && window.Vue) {
+  window.Vue.use(VueFusiontimeXt);
 }

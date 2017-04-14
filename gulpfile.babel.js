@@ -11,9 +11,9 @@ const browserSync = browserSyncBuilder.create();
 const reload = browserSync.reload;
 
 const configExamples = require('./webpack.config.examples.js');
-const configComponent = require('./webpack.config.source.js');
+const configSource = require('./webpack.config.source.js');
 
-gulp.task('script:example', () => (
+gulp.task('script:examples', () => (
   gulp.src([
     './examples/main.js',
   ])
@@ -25,7 +25,7 @@ gulp.task('script:source', () => (
   gulp.src([
     './src/index.js',
   ])
-  .pipe(webpackStream(configComponent, webpack))
+  .pipe(webpackStream(configSource, webpack))
   .pipe(gulp.dest('./dist'))
 ));
 
@@ -69,7 +69,7 @@ gulp.task('serve', ['script:source', 'script:examples', 'style'], () => {
 });
 
 gulp.task('build:source', ['clean', 'script:source']);
-gulp.task('build:example', ['style', 'script:example']);
+gulp.task('build:examples', ['style', 'script:examples']);
 
 gulp.task('default', ['clean'], cb => (
   runSequence(

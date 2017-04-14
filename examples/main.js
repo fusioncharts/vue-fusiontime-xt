@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Prism from 'prismjs';
-import VueFusionTime from '../src';
+import FusiontimeXt from '../dist/vue-fusiontime-xt';
 import tsData from './datarepo';
 import Snippets from './snippets';
 
-Vue.use(VueFusionTime);
+Vue.use(FusiontimeXt);
 
 window.app = new Vue({
   el: '#app',
