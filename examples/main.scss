@@ -7127,6 +7127,9 @@ fusiontime {
 .fusiontime {
   width: 850px;
   height: 450px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .fc-bond-img {

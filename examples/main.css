@@ -6677,7 +6677,15 @@ fusiontime {
 
 .fusiontime {
   width: 850px;
-  height: 450px; }
+  height: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
 .fc-bond-img {
   margin-top: 17px;

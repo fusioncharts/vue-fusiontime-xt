@@ -22,7 +22,7 @@ Execute the commands below in the terminal to install `vue-fusiontime-xt` node m
 npm install vue-fusiontime-xt --save
 ```
 
-### Step 2: Use the plugin in your main js file.
+### Step 2: Import the plugin in your main js file.
 
 #### Option A: Using CommonJS
 ```javascript

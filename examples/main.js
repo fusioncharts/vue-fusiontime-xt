@@ -39,4 +39,9 @@ window.app = new Vue({
     this._attachSnippets();
     this._initDefaults();
   },
+  mounted() {
+    const loader = document.createElement('div');
+    loader.classList.add('loader');
+    document.querySelector('.fusiontime').appendChild(loader);
+  },
 });
